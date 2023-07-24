@@ -1,4 +1,4 @@
-#' Title
+#' Airline Ticket Overbooking Problem
 #'
 #' @param N number of seats available on plane
 #' @param gamma gamma value
@@ -53,7 +53,7 @@ ntickets = function(N, gamma, p){
   # nc # testing purposes
 
   # prints list of required values
-  list(nd=nd, nc=nc, N = N, p = p, gamma = gamma)
+  print(list(nd=nd, nc=nc, N = N, p = p, gamma = gamma))
 
   # setting layout for plots
   layout(matrix(1:2, nrow=2,ncol=2))
