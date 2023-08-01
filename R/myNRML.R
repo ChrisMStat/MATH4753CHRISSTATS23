@@ -1,4 +1,4 @@
-#' Title
+#' myNRML Function
 #'
 #' @param x0 x0 value; such as 1
 #' @param delta delta; value such as 0.000001
@@ -9,8 +9,13 @@
 #' @return a plot and all the dat regarding the plot
 #' @export
 #'
+#' @importFrom graphics axis hist points segments
+#' @importFrom stats dpois lm quantile rpois
+#'
 #' @examples
-#' myNRML(x0=1,delta=0.000001,llik=function(x) log(dpois(4,x)dpois(6,x)dpois(7,x)dpois(6,x)dpois(5,x)),xrange=c(0,20),parameter="lambda" )
+#' myNRML(x0=1,delta=0.000001,llik=function(x)
+#' log(dpois(4,x)*dpois(6,x)*dpois(7,x)*dpois(6,x)*dpois(5,x)),
+#' xrange=c(0,20),parameter="lambda" )
 #'
 myNRML=function(x0,delta=0.001,llik,xrange,parameter="param"){
   f=function(x) (llik(x+delta)-llik(x))/delta
@@ -27,7 +32,7 @@ myNRML=function(x0,delta=0.001,llik,xrange,parameter="param"){
     y[i+1]=f(x[i+1])
     d=abs(y[i+1])
   }
-  layout(matrix(1:2,nr=1,nc=2,byrow=TRUE),width=c(1,2))
+  layout(matrix(1:2,nrow=1,ncol=2,byrow=TRUE),widths=c(1,2))
   curve(llik(x), xlim=xrange,xlab=parameter,ylab="log Lik",main="Log Lik")
   curve(f(x),xlim=xrange,xaxt="n", xlab=parameter,ylab="derivative",main=  "Newton-Raphson Algorithm \n on the derivative")
   points(x,y,col="Red",pch=19,cex=1.5)

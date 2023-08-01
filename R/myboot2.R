@@ -1,17 +1,19 @@
 #' Title
 #'
 #' @param iter number of interations
-#' @param x
+#' @param x vector
 #' @param fun which type of function is used in apply() i.e. mean, median, etc.
 #' @param alpha confindence percentage in decimal form
-#' @param ...
+#' @param ... any additional arguments
 #'
 #' @return a plot and a list of values if needed (see return function at bottom of function)
 #' @export
 #'
 #' @examples
-#' myboot2(x=sam, iter = 10000, fun="mean", alpha = 0.05)
+#' myboot2(x=c(3,2,4,5), iter = 10000, fun="mean", alpha = 0.05)
 #'
+
+
 myboot2<-function(iter=10000,x,fun="mean",alpha=0.05,...){
 
   #Notice where the ... is repeated in the code
@@ -21,7 +23,7 @@ myboot2<-function(iter=10000,x,fun="mean",alpha=0.05,...){
   y=sample(x,n*iter,replace=TRUE) #A
 
   # Make a matrix with all the resampled values
-  rs.mat=matrix(y,nr=n,nc=iter,byrow=TRUE)
+  rs.mat=matrix(y,nrow=n,ncol=iter,byrow=TRUE)
   xstat=apply(rs.mat,2,fun)
   # xstat is a vector and will have iter values in it
   ci=quantile(xstat,c(alpha/2,1-alpha/2)) #B
@@ -31,7 +33,7 @@ myboot2<-function(iter=10000,x,fun="mean",alpha=0.05,...){
   para=hist(xstat,freq=FALSE,las=1,main="Histogram of Bootstrap sample statistics",...)
 
   #mat will be a matrix that contains the data, this is done so that I can use apply()
-  mat=matrix(x,nr=length(x),nc=1,byrow=TRUE)
+  mat=matrix(x,nrow=length(x),ncol=1,byrow=TRUE)
 
   #pte is the point estimate
   #This uses whatever fun is

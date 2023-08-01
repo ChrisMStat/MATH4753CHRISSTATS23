@@ -2,7 +2,7 @@
 % Please edit documentation in R/myNRML.R
 \name{myNRML}
 \alias{myNRML}
-\title{Title}
+\title{myNRML Function}
 \usage{
 myNRML(x0, delta = 0.001, llik, xrange, parameter = "param")
 }
@@ -21,9 +21,11 @@ myNRML(x0, delta = 0.001, llik, xrange, parameter = "param")
 a plot and all the dat regarding the plot
 }
 \description{
-Title
+myNRML Function
 }
 \examples{
-myNRML(x0=1,delta=0.000001,llik=function(x) log(dpois(4,x)dpois(6,x)dpois(7,x)dpois(6,x)dpois(5,x)),xrange=c(0,20),parameter="lambda" )
+myNRML(x0=1,delta=0.000001,llik=function(x)
+log(dpois(4,x)*dpois(6,x)*dpois(7,x)*dpois(6,x)*dpois(5,x)),
+xrange=c(0,20),parameter="lambda" )
 
 }

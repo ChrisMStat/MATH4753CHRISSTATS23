@@ -19,4 +19,5 @@ Piecewise Function
 }
 \examples{
 piecewise_lm(spruce.df, 18)
+
 }

@@ -13,7 +13,7 @@ mycltp(n, iter, lambda = 10, ...)
 
 \item{lambda}{rate}
 
-\item{...}{}
+\item{...}{any additional arguments}
 }
 \value{
 a series of plots

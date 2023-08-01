@@ -9,11 +9,13 @@ myboot2(iter = 10000, x, fun = "mean", alpha = 0.05, ...)
 \arguments{
 \item{iter}{number of interations}
 
+\item{x}{vector}
+
 \item{fun}{which type of function is used in apply() i.e. mean, median, etc.}
 
 \item{alpha}{confindence percentage in decimal form}
 
-\item{...}{}
+\item{...}{any additional arguments}
 }
 \value{
 a plot and a list of values if needed (see return function at bottom of function)
@@ -22,6 +24,6 @@ a plot and a list of values if needed (see return function at bottom of function
 Title
 }
 \examples{
-myboot2(x=sam, iter = 10000, fun="mean", alpha = 0.05)
+myboot2(x=c(3,2,4,5), iter = 10000, fun="mean", alpha = 0.05)
 
 }
